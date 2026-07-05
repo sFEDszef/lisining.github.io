@@ -1,4 +1,24 @@
 const portfolioData = {
+  profile: [
+    {
+      label: "Name",
+      value: "Li Sining / 李司宁"
+    },
+    {
+      label: "Age",
+      value: "22"
+    },
+    {
+      label: "Education",
+      value:
+        "MEd in Education, Education Research direction, The Education University of Hong Kong; Bachelor in Accounting, Jilin University of Finance and Economics."
+    },
+    {
+      label: "Relevant Preparation",
+      value:
+        "Practical exposure to interviews, document review, research reporting, and structured analysis through internship experience."
+    }
+  ],
   researchCore: [
     {
       title: "AI in Education",
@@ -12,7 +32,7 @@ const portfolioData = {
     }
   ],
   statement:
-    "My research focuses on how artificial intelligence reshapes learning environments and how students develop autonomous learning abilities within technology-enhanced education systems. I am particularly interested in the interaction between AI-enhanced learning systems, learner behavior, and self-regulated learning processes, with attention to how educational technologies mediate students' capacity to plan, monitor, and evaluate their own learning. This portfolio is positioned toward Education PhD study, with a primary interest in Hong Kong research programs and a broader interest in Mainland China and European doctoral opportunities.",
+    "My research focuses on how artificial intelligence reshapes learning environments and how students develop autonomous learning abilities within technology-enhanced education systems. I am particularly interested in the interaction between AI-enhanced learning systems, learner behavior, and self-regulated learning processes, with attention to how educational technologies mediate students' capacity to plan, monitor, and evaluate their own learning. This portfolio is positioned toward Education PhD study and future research supervision conversations.",
   questions: [
     "How do AI-enhanced learning systems transform the conditions under which students develop autonomous and self-regulated learning practices in higher education contexts?",
     "In what ways do students interpret, negotiate, and adapt their learning behaviors when artificial intelligence becomes embedded in everyday educational environments?",
@@ -39,7 +59,7 @@ const portfolioData = {
     {
       title: "Faculty Mapping Database",
       description:
-        "A supervision-fit database for Hong Kong priority programs, Mainland China secondary options, and selected Europe PhD positions."
+        "A supervision-fit database for Education PhD programs, faculty research interests, and potential supervisor conversations."
     }
   ],
   architecture: [
@@ -58,6 +78,17 @@ const renderList = (targetId, items, template) => {
 
 document.getElementById("research-statement").textContent = portfolioData.statement;
 document.getElementById("academic-signal").textContent = portfolioData.academicSignal;
+
+renderList(
+  "profile-list",
+  portfolioData.profile,
+  (item) => `
+    <article class="profile-card">
+      <span>${item.label}</span>
+      <strong>${item.value}</strong>
+    </article>
+  `
+);
 
 renderList(
   "research-core-list",
